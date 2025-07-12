@@ -53,44 +53,74 @@ const StatCard = ({ icon, endValue, label }) => {
   return (
     <div ref={ref} className="bg-white p-6 rounded-xl shadow-lg text-center">
       <div className="text-blue-500 mx-auto w-fit mb-3">{icon}</div>
-      <p className="text-4xl font-bold text-slate-800">{count}</p>
+      <p className="text-3xl sm:text-4xl font-bold text-slate-800">{count}</p>
       <p className="text-slate-500 mt-1">{label}</p>
     </div>
   );
 };
 
+// --- PERUBAHAN UTAMA DI SINI ---
 const HeroSection = () => (
-  <div className="relative bg-gradient-to-br from-sky-50 via-blue-100 to-indigo-200 pt-16 pb-20">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="grid md:grid-cols-2 gap-12 items-center">
-        <div className="text-center md:text-left">
-          <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl md:text-6xl">
-            <span className="block">KKN-T Literasi</span>
-            <span className="block text-blue-600 mt-2">Desa Belor</span>
-          </h1>
-          <p className="mt-6 text-lg text-slate-600">
-            Selamat datang di pusat informasi digital kegiatan KKN. Temukan jadwal, rekapitulasi, dan dokumentasi program kerja yang kami laksanakan untuk desa.
-          </p>
-          <div className="mt-8">
-            <a
-              href="#kegiatan"
-              className="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-blue-700 transform hover:-translate-y-1 transition-all duration-300"
-            >
-              Lihat Semua Kegiatan
-            </a>
-          </div>
-        </div>
-        <div className="hidden md:block">
-          <img 
-            src="/foto.png" 
-            alt="Ilustrasi KKN"
-            className="w-4/5 mx-auto h-auto"
-           />
+  <>
+    {/* Tampilan Mobile: Gambar sebagai background */}
+    <div 
+      className="relative bg-cover bg-center md:hidden" 
+      style={{ backgroundImage: "url('/foto.png')" }}
+    >
+      <div className="absolute inset-0 bg-slate-900/60"></div>
+      <div className="relative max-w-7xl mx-auto px-4 py-24 text-center">
+        <h1 className="text-4xl font-extrabold tracking-tight text-white">
+          <span className="block">KKN-T Literasi</span>
+          <span className="block text-cyan-400 mt-2">Desa Belor</span>
+        </h1>
+        <p className="mt-6 max-w-2xl mx-auto text-lg text-slate-200">
+          Selamat datang di pusat informasi digital kegiatan KKN.
+        </p>
+        <div className="mt-8">
+          <a
+            href="#kegiatan"
+            className="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg"
+          >
+            Lihat Kegiatan
+          </a>
         </div>
       </div>
     </div>
-  </div>
+
+    {/* Tampilan Desktop: Layout 2 kolom seperti sebelumnya */}
+    <div className="relative bg-gradient-to-br from-sky-50 via-blue-100 to-indigo-200 py-16 sm:py-20 hidden md:block">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="text-center md:text-left">
+            <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
+              <span className="block">KKN-T Literasi</span>
+              <span className="block text-blue-600 mt-2">Desa Belor</span>
+            </h1>
+            <p className="mt-6 text-lg text-slate-600">
+              Selamat datang di pusat informasi digital kegiatan KKN. Temukan jadwal, rekapitulasi, dan dokumentasi program kerja yang kami laksanakan untuk desa.
+            </p>
+            <div className="mt-8">
+              <a
+                href="#kegiatan"
+                className="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-blue-700 transform hover:-translate-y-1 transition-all duration-300"
+              >
+                Lihat Semua Kegiatan
+              </a>
+            </div>
+          </div>
+          <div>
+            <img 
+              src="/foto.png" 
+              alt="Ilustrasi KKN"
+              className="w-4/5 mx-auto h-auto rounded-lg shadow-xl"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </>
 );
+
 
 const ActivityCard = ({ item }) => (
   <div
@@ -153,12 +183,11 @@ const ActivityList = ({ kegiatan, loading, error }) => {
   );
 };
 
-// --- KOMPONEN BARU UNTUK LOKASI & PETA ---
 const LocationMapSection = () => (
-  <AnimatedSection className="py-20">
+  <AnimatedSection className="py-16 sm:py-20">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center">
-        <h2 className="text-3xl font-bold text-slate-800">Lokasi Pengabdian </h2>
+        <h2 className="text-3xl font-bold text-slate-800">Lokasi Pengabdian</h2>
         <p className="mt-2 text-gray-600">
           Desa Belor, Kecamatan Ngaringan, Kabupaten Grobogan, Jawa Tengah
         </p>
@@ -167,7 +196,7 @@ const LocationMapSection = () => (
         <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-2xl border-4 border-white">
           <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15844.73377726488!2d111.1396264282305!3d-7.16200257049884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e77e23363346e99%3A0x9599b248a3faf96!2sBelor%2C%20Kec.%20Ngaringan%2C%20Kabupaten%20Grobogan%2C%20Jawa%20Tengah!5e0!3m2!1sid!2sid!4v1720803837424!5m2!1sid!2sid"
-            className="w-full h-96 md:h-[500px]" // Ukuran peta dibuat lebih besar
+            className="w-full h-80 md:h-[500px]"
             style={{ border: 0 }} 
             allowFullScreen="" 
             loading="lazy" 
@@ -212,7 +241,7 @@ export default function Home() {
       <main>
         <HeroSection />
 
-        <AnimatedSection className="py-20 bg-white">
+        <AnimatedSection className="py-16 sm:py-20 bg-white">
             <div className="max-w-5xl mx-auto px-4">
                 <div className="text-center">
                     <h2 className="text-3xl font-bold text-slate-800">Sekilas Program</h2>
@@ -226,7 +255,7 @@ export default function Home() {
             </div>
         </AnimatedSection>
         
-        <div id="kegiatan" className="py-20">
+        <div id="kegiatan" className="py-16 sm:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-slate-800">Daftar Kegiatan</h2>
@@ -238,7 +267,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* LOKASI & PETA DITARUH DI PALING BAWAH */}
         <LocationMapSection />
 
       </main>
