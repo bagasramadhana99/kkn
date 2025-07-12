@@ -50,15 +50,15 @@ const ProfileCard = ({ nama, prodi, foto, socials }) => (
 export default function Profil() {
   // GANTI DENGAN DATA TIM ANDA
   const anggota = [
-    { nama: 'Mahasiswa 1', prodi: 'Teknik Informatika', foto: '/images/profil/1.png', socials: { linkedin: '#', instagram: '#' } },
-    { nama: 'Mahasiswa 2', prodi: 'Ilmu Komunikasi', foto: '/images/profil/2.png', socials: { linkedin: '#', instagram: '#' } },
-    { nama: 'Mahasiswa 3', prodi: 'Agroteknologi', foto: '/images/profil/3.png', socials: { linkedin: '#', instagram: '#' } },
-    { nama: 'Mahasiswa 4', prodi: 'Kesehatan Masyarakat', foto: '/images/profil/4.png', socials: { linkedin: '#', instagram: '#' } },
-    { nama: 'Mahasiswa 5', prodi: 'Manajemen', foto: '/images/profil/5.png', socials: { linkedin: '#', instagram: '#' } },
-    { nama: 'Mahasiswa 6', prodi: 'Pendidikan Guru', foto: '/images/profil/6.png', socials: { linkedin: '#', instagram: '#' } },
-    { nama: 'Mahasiswa 7', prodi: 'Teknik Sipil', foto: '/images/profil/7.png', socials: { linkedin: '#', instagram: '#' } },
-    { nama: 'Mahasiswa 8', prodi: 'Sastra Inggris', foto: '/images/profil/8.png', socials: { linkedin: '#', instagram: '#' } },
-    { nama: 'Mahasiswa 9', prodi: 'Hukum', foto: '/images/profil/9.png', socials: { linkedin: '#', instagram: '#' } },
+    { nama: 'Tsamrajania', prodi: 'Antropologi Sosial', foto: '/images/profil/1.png', socials: { linkedin: '#', instagram: '#' } },
+    { nama: 'Jamil', prodi: 'Agroteknologi', foto: '/images/profil/2.png', socials: { linkedin: '#', instagram: '#' } },
+    { nama: 'Noviyanti', prodi: 'Kimia', foto: '/images/profil/3.png', socials: { linkedin: '#', instagram: '#' } },
+    { nama: 'Faza Panjul', prodi: 'Ilmu Perpustakaan', foto: '/images/profil/4.png', socials: { linkedin: '#', instagram: '#' } },
+    { nama: 'Rahma', prodi: 'Akuntansi Perpajakan', foto: '/images/profil/5.png', socials: { linkedin: '#', instagram: '#' } },
+    { nama: 'Diva', prodi: 'Ilmu Perpustakaan', foto: '/images/profil/6.png', socials: { linkedin: '#', instagram: '#' } },
+    { nama: 'Bagas R', prodi: 'Teknik Komputer', foto: '/images/profil/7.png', socials: { linkedin: '#', instagram: '#' } },
+    { nama: 'Wahyu', prodi: 'Rekayasa Perancangan Mesin', foto: '/images/profil/8.png', socials: { linkedin: '#', instagram: '#' } },
+    { nama: 'Theda', prodi: 'Hukum', foto: '/images/profil/9.png', socials: { linkedin: '#', instagram: '#' } },
   ];
 
   const dpl = { 
