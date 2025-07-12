@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import Kegiatan from './pages/Kegiatan';
 import Profil from './pages/Profil';
 import About from './pages/About';
-import Layout from './components/Layout';
+import Layout from './components/Layout'; // Layout ini yang mengatur Navbar dan Footer
 
 function App() {
   const [session, setSession] = useState(null);
@@ -29,7 +29,8 @@ function App() {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>; // Tampilkan loading screen sederhana
+    // Anda bisa mengganti ini dengan komponen spinner yang lebih bagus
+    return <div className="flex justify-center items-center min-h-screen">Loading...</div>; 
   }
 
   // Jika tidak ada sesi (belum login), selalu tampilkan halaman Login
@@ -37,7 +38,7 @@ function App() {
     return <Login />;
   }
 
-  // Jika sudah login, tampilkan halaman-halaman utama dengan navbar
+  // Jika sudah login, tampilkan halaman-halaman utama dengan layout yang sudah ada
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

@@ -1,16 +1,19 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
+import Footer from './Footer'; // 1. Impor komponen Footer
 
 export default function Layout() {
   return (
-    <div>
+    // 2. Gunakan flexbox untuk memastikan footer menempel di bawah
+    <div className="flex flex-col min-h-screen bg-slate-50">
       <Navbar />
-      <main>
-        {/* Perubahan ada di baris di bawah ini */}
-        <div className="py-6 sm:px-6 lg:px-8">
-          <Outlet /> {/* Konten halaman akan ditampilkan di sini */}
-        </div>
+      
+      {/* 3. Konten utama akan tumbuh mengisi ruang yang tersedia */}
+      <main className="flex-grow">
+        <Outlet /> {/* Ini adalah tempat halaman (Home, About, dll.) akan dirender */}
       </main>
+      
+      <Footer /> {/* 4. Tambahkan Footer di bagian paling bawah */}
     </div>
   );
 }
